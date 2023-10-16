@@ -1,4 +1,4 @@
-import type User from "../../../types/src/User"
+import type User from "../../../common/src/User"
 import { AUTH_HEADER } from "../config"
 
 const authHeaders = {

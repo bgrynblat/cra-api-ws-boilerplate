@@ -1,6 +1,6 @@
 import { Stream } from "stream"
 import {WebSocket} from 'ws'
-import User from "../../types/src/User"
+import User from "../../common/src/User"
 export type BRequest = {
     method: BMethod,
     path: string,
