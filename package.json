@@ -1,0 +1,12 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./start.sh & cd api && bun run src/server.ts & cd web && bun run start",
+    "watch": "./start.sh & cd api && bun run --watch src/server.ts & cd web && bun run --watch start"
+  },
+  "author": "",
+  "license": "ISC"
+}
