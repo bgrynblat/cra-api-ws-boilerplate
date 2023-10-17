@@ -123,8 +123,20 @@ const draw = ({
             }
 
             // console.log(`Drawing: ${method.toUpperCase()} ${path} middlewares:${mids.length}`);
-            app[method](path, (req:any, res:any) => {
+            app[method](path, (req:FastifyRequest, res:FastifyReply) => {
                 run(fn, req, res, ...mmids)
+                .catch(err => {
+                    console.error(`ERROR | ${method.toUpperCase()} ${path}`, err)
+                    if(err.code) {
+                        res.status(err.code)
+                    } else {
+                        res.status(500)
+                    }
+                    res.send({
+                        message: err.message || "Internal server error",
+                        error: err.stack
+                    })
+                })
             })
             count++
         }
